@@ -50,15 +50,16 @@ jobs:
 
   coverage:
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
       - name: setup python
-        uses: actions/setup-python@4.4.0
+        uses: actions/setup-python@v4.4.0
         with:
           python-version: '3.10'
       - run: pip install coverage[toml]
       - name: download coverage data
-        uses: actions/download-artifacts@v3.0.2
+        uses: actions/download-artifact@v3.0.2
         with:
           name: coverage-data
       - name: combine coverage data
