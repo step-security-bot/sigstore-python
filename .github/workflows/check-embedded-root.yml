@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '13 13 * * 3'
 
+permissions:
+  contents: read
+
 jobs:
   check-embedded-root:
     runs-on: ubuntu-latest
